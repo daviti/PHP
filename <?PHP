@@ -1,0 +1,9 @@
+<?php.php
+$marray = [[2,3], [5,2,3,4],[6,8,2], [6]];
+foreach($array as $item)
+{
+	each $item . "<br>";
+	}
+}
+
+?>

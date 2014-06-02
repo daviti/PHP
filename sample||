@@ -1,0 +1,373 @@
+</body>
+
+
+<!DOCTYPE HTML>​
+​<html>​
+​<head>​
+	<meta charset="UTF-8">​
+	<title>Basic I</title>​
+​</head>​
+​
+​<body>​
+​
+​<?php​
+	for($counter=1; $counter<= 100; $counter++)
+	{
+		/* $score variable will have random values between 50 and 100 because we used
+		* PHP's rand() function. 
+		*/​
+		$score = rand(50,100);
+​
+		/* After giving $score a random value, we then check whether the value of $score meets the 
+		* conditions below. If it meets one of the conditions below, it will store the $score's
+		* corresponding grade in $grade variable.
+		*/​
+		if($score < 70)
+		{
+			$grade = "D"; 
+		}
+		elseif($score >= 70 and $score < 80)
+		{
+			$grade = "C";
+		}
+		elseif($score >= 80 and $score < 90)
+		{
+			$grade = "B";
+		}
+		else​
+		{
+			$grade = "A";
+		}
+​
+		/* After setting the $grade for that $score, we then echo it out here. $score is echoed out
+		* in an <h1> tag while $grade is inside an <h2> tag.
+		*/​
+		//echo "Student #" . $counter . "<br />";​
+		echo "<h1>Your Score: " . $score . "</h1>";
+		echo "<h2>Your grade is " . $grade . "</h2>";
+	}
+​?>​
+​</body>
+
+
+
+
+<!doctype html>​
+​<html lang="en">​
+​<head>​
+	<meta charset="UTF-8">​
+	<title>Basic 2</title>​
+​</head>​
+​<body>​
+	<form>​
+		<label for="states">States</label>​
+		
+	
+		<select name="states" id="">​
+		<?php​
+			
+			$states = array("CA", "WA", "VA", "UT", "AZ"); 
+		
+	
+			for($counter=0; $counter<count($states); $counter++)
+			{	
+				echo "<option value='" . $states[$counter] . "' >".$states[$counter]."</option>";
+			}
+		?>​
+		</select>​
+	</form>​
+​
+	<form>​
+		<label for="states">States</label>​
+	
+		<select name="states" id="">​
+		<?php​
+		
+			
+			foreach($states as $state)
+			{
+				echo "<option value='" . $state ."' >".$state."</option>";
+			}
+			
+		?>​
+		</select>​
+	</form>​
+​
+	<form>​
+		<label for="states">States</label>​
+		
+		
+		<select>​
+		<?php​
+		
+			
+			array_push($states, "NJ", "NY", "DE");
+			
+			foreach($states as $state)
+			{
+				echo "<option value='" .$state. "' >".$state."</option>";
+			}
+		?>​
+		</select>​
+	</form>​
+​</body>​
+​</html>​
+​
+
+<?php​
+​
+	$heads_total = 0;
+	$tails_total = 0;
+​	for($i = 1; $i <= 5000; $i++)
+	{
+		$coin = rand(1,2);
+		if($coin == 1)
+		{
+			$result = "headers";
+			$heads_total++;
+		}
+​
+		else​
+		{
+			$result = "tails";
+			$tails_total++;
+		}
+​
+		echo "Attempt #" . $i . ": Throwing a coin... It's a ".$result."! ... Got ".$heads_total." head(s) so far and ".$tails_total." tail(s) so far. <br>";
+	}
+​
+​?>
+
+
+<!DOCTYPE html>​
+​<html>​
+​<head>​
+	<title>Get Min and Max</title>​
+​</head>​
+​<body>​
+	<?php​
+​ 
+$myarray = array(5, 10, 15, 20, 25, 30);
+	function min_and_max($value)
+	{
+		
+		$max = 0;
+		$min = 0;
+
+		for($counter = 0; $counter < count($value); $counter++)
+		{
+		
+			$current_value = $value[$counter];
+​
+			if($counter == 0 OR $max < $current_value)
+			{
+				$max = $current_value;
+				
+			}
+​
+			if($counter == 0 OR $min > $current_value)
+			{
+				$min = $current_value;
+			}
+		}
+​
+	
+		$min_max = array('min' => $min, 'max' => $max);
+		return $min_max;
+	
+	}
+​
+​	$output = min_and_max($myarray);
+​
+	var_dump($output);
+	?>​
+​</body>​
+​</html>
+
+​
+​
+
+<!DOCTYPE HTML>​
+​<html>​
+​<head>​
+	<meta charset="UTF-8">​
+	<title>Draw Stars</title>​
+​</head>​
+​
+​<body>​
+​<?php​
+	
+	function draw_stars($array)
+	{
+		foreach($array as $value)
+		{
+			if(is_numeric($value))
+			{
+				echo str_repeat("*", $value) . "<br>";
+			}
+			else​
+			{
+				$letter = strtolower(substr($value, 0, 1)); 
+​
+			$letter_count = strlen($value);  
+​
+				echo str_repeat($letter, $letter_count) . "<br />";
+			}
+		}
+	}
+	
+	$numbers_array = array(4, 6, 8, 1, 9, 10, 4, 2, 2, 7, 17);
+​
+	$numbers_strings_array = array(2,5,1,8,"Oliver","Kristine",22);
+	
+	$output = draw_stars($numbers_array);
+​
+	echo $output;
+	
+	echo "<hr />";
+	
+	$second_output = draw_stars($numbers_strings_array);
+​
+	echo $second_output	
+​?>​
+​</body>
+
+<!DOCTYPE HTML>​
+​<html>​
+	<head>​
+		<title></title>​
+		<link type="text/css" rel="stylesheet">​
+		<style>​
+			table, td {
+				border: 1px solid black;
+				padding: 10px;
+			}
+			table {
+				border-collapse: collapse;
+				margin: 50px;
+			}
+			h1 {
+				margin: 50px;
+			}
+			table th {
+				border: 1px solid black;
+				font-size: 20px;
+			}
+		</style>​
+	</head>​
+	<body>​
+		<h1>Multiplication Table</h1>​
+		<table>​
+			<thead>​
+				<tr>​
+​<?php​
+				// the top row of numbers​
+				for ($counter=0; $counter<10; $counter++)
+				{
+					if ($counter != 0)
+						echo "<th>".$counter."</th>";
+					else​
+						echo "<th>*</th>";
+				}
+​?>​
+				</tr>​
+			</thead>​
+			<tbody>​
+​<?php			
+				//multiplication table​
+				for($counter=1; $counter<10; $counter++)
+				{
+					if($counter % 2)
+						echo "<tr style='background-color: silver;'>";
+					else​
+						echo "<tr>";
+						
+					echo "<td>". $counter ."</td>";
+					
+					for($inner_counter=1; $inner_counter<10; $inner_counter++)
+					{
+						echo "<td>". ($counter*$inner_counter) . "</td>";
+					}
+					echo "</tr>";
+				}
+​
+​?>​
+			</tbody>​
+		</table>​
+	</body>​
+​</html>
+<!DOCTYPE HTML>​
+​<html>​
+​<head>​
+	<meta charset="UTF-8">​
+	<title>Multiplication Table</title>​
+	<link rel="stylesheet" type="text/css" href="style.css" />​
+​</head>​
+	<table>​
+		<thead>​
+​<?php​
+			// first working on the columns for the table​
+			for($columns = 0; $columns < 10; $columns++)
+			{
+				if($columns > 0)
+				{
+					echo "<th class='emphasized'>" . $columns . "</th>";
+				}
+				else​
+				{
+					echo "<th> </th>";
+				}
+			} 
+​?>​
+		</thead>​
+		<tbody>​
+​<?php​
+			for($rows = 1; $rows < 10; $rows++)
+			{
+				if(is_int($rows / 2))
+				{
+					echo "<tr> <td class='emphiasized'>" . $rows . "</td>";
+				}
+				else​
+				{
+					echo "<tr class='highlighted'> <td class='emphasized'>" . $rows . "</td>";
+				}
+				
+				for($columns = 1; $columns < 10; $columns++)
+				{
+					echo "<td>" . $columns * $rows . "</td>";
+				}			
+				echo "</tr>";
+			} 
+​?>​
+		</tbody>​
+	</table>​
+​<body>​
+​</body>
+.emphasized {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+​
+​.highlighted {
+	background-color: gray;
+}
+​
+​th {
+	border: 1px solid black;
+	width: 25px;
+	height: 25px;
+	margin: 0px;
+	padding: 0px;
+}
+​
+​td {
+	border: 1px solid black;
+	width: 25px;
+	height: 25px;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
